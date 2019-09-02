@@ -1,0 +1,48 @@
+<html>
+<head>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>List All Tasks</h1></br>
+    <h2>
+        <a href="/">Home</a>
+        <a href="/newtask">New Task</a>
+        <a href="/updatetask">Update Task</a>
+        <a href="/deletetask">Delete Task</a>
+        <a href="/deleteall">Delete Completed Tasks</a>
+    </h2>
+    </br>
+        <table>
+            <tr>
+                <td>ID</td>
+                <td>Name</td>
+                <td>Assigned To</td>
+                <td>Due Date</td>
+                <td>Status</td>
+                <td>Description</td>
+            </tr>
+            <% for (var i = 0; i < taskDB.length; i++){ %>
+                <tr>
+                    <td>
+                        <%= taskDB[i]._id %>
+                    </td>
+                    <td>
+                        <%= taskDB[i].name %>
+                    </td>
+                    <td>
+                        <%= taskDB[i].assign %>
+                    </td>
+                    <td>
+                        <%= taskDB[i].due %>
+                    </td>
+                    <td>
+                        <%= taskDB[i].status %>
+                    </td>
+                    <td>
+                        <%= taskDB[i].desc %>
+                    </td>
+                </tr>
+            <% }%>
+        </table>
+</body>
+</html>

@@ -1,0 +1,10 @@
+body {
+    background-color: cyan;
+}
+
+
+table,
+th,
+td {
+    border: 1px solid black;
+}
