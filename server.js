@@ -81,4 +81,15 @@ app.post('/deleteall', function (req, res) {
     res.redirect("/listtasks");
 });
 
+app.get('/deleteOldComplete', function (req, res) {
+    res.sendFile(viewsPath + "deleteoldcomplete.html");
+});
+
+app.post('/deleteOldComplete', function (req, res) {
+    let today = "2019-09-03";
+    let query = {$and: [{status: "Complete"}, {due: {$lt: today}}]};
+    col.deleteMany(query);
+    res.redirect("/listtasks");
+});
+
 app.listen(8080);
