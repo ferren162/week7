@@ -121,4 +121,10 @@ app.post('/deleteall', function (req, res) {
     res.redirect("/listtasks");
 });
 
+app.get("/list3tasks", (req, res) => {
+    Tasks.find({ status: "Complete" }).sort({name: -1}).limit(3).exec(function (err, docs) {
+        res.render('listtasks.html', { taskDB: docs })
+    })
+});
+
 app.listen(8080);
