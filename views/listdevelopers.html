@@ -7,8 +7,8 @@
     <h2>
         <a href="/">Home</a>
         <a href="/newdeveloper">New Developer</a>
-        <a href="/listdevelopers">List Developers</a>
         <a href="/newtask">New Task</a>
+        <a href="/listtasks">List Task</a>
         <a href="/updatetask">Update Task</a>
         <a href="/deletetask">Delete Task</a>
         <a href="/deleteall">Delete Completed Tasks</a>
@@ -17,31 +17,30 @@
         <table>
             <tr>
                 <td>ID</td>
-                <td>Name</td>
-                <td>Assigned To</td>
-                <td>Due Date</td>
-                <td>Status</td>
-                <td>Description</td>
+                <td>First Name</td>
+                <td>Last Name</td>
+                <td>Level</td>
+                <td>Address</td>
             </tr>
-            <% for (var i = 0; i < taskDB.length; i++){ %>
+            <% for (var i = 0; i < developerDB.length; i++){ %>
                 <tr>
                     <td>
-                        <%= taskDB[i]._id %>
+                        <%= developerDB[i]._id %>
                     </td>
                     <td>
-                        <%= taskDB[i].name %>
+                        <%= developerDB[i].name.firstName %>
                     </td>
                     <td>
-                        <%= taskDB[i].assignTo %>
+                        <%= developerDB[i].name.lastName %>
                     </td>
                     <td>
-                        <%= taskDB[i].dueDate %>
+                        <%= developerDB[i].level %>
                     </td>
                     <td>
-                        <%= taskDB[i].status %>
-                    </td>
-                    <td>
-                        <%= taskDB[i].desc %>
+                        <%= developerDB[i].address.unit %> 
+                        <%= developerDB[i].address.street %>, 
+                        <%= developerDB[i].address.suburb %>, 
+                        <%= developerDB[i].address.state %>
                     </td>
                 </tr>
             <% }%>
