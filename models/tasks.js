@@ -10,7 +10,15 @@ var tasksSchema = mongoose.Schema({
         type: Date,
         default: Date.now
     },
-    status: String,
+    status: {
+        type: String,
+        validate: {
+            validator: function (status) {
+                return status === "InProgress" || status === "Complete";
+            },
+            message: 'status should be InProgress or Complete'
+        }
+    },
     desc: String
 });
 
